@@ -1,0 +1,57 @@
+{
+  "name": "CloudEvent",
+  "type": "record",
+  "doc": "Avro Event Format for CloudEvents created with openedx_events/schema",
+  "fields": [
+    {
+      "name": "submission",
+      "type": {
+        "name": "SubmissionData",
+        "type": "record",
+        "fields": [
+          {
+            "name": "student_id",
+            "type": "string"
+          },
+          {
+            "name": "item_id",
+            "type": "string"
+          },
+          {
+            "name": "course_id",
+            "type": "string"
+          },
+          {
+            "name": "item_type",
+            "type": "string"
+          },
+          {
+            "name": "answer",
+            "type": "string"
+          },
+          {
+            "name": "attempt_number",
+            "type": "long"
+          },
+          {
+            "name": "submitted_at",
+            "type": "string"
+          },
+          {
+            "name": "submission_uid",
+            "type": "string"
+          },
+          {
+            "name": "team_submission_uuid",
+            "type": [
+              "null",
+              "string"
+            ],
+            "default": null
+          }
+        ]
+      }
+    }
+  ],
+  "namespace": "org.openedx.learning.response.submitted.v1"
+}
