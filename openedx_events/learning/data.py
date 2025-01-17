@@ -632,7 +632,7 @@ class SubmissionData:
     item_id = attr.ib(type=str)
     course_id = attr.ib(type=str)
     item_type = attr.ib(type=str)
-    answer = attr.ib(type=dict)
+    answer = attr.ib(type=str)
     attempt_number = attr.ib(type=int)
     submitted_at = attr.ib(type=datetime)
     submission_uid = attr.ib(type=UUID)
