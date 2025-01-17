@@ -27,6 +27,7 @@ from openedx_events.learning.data import (
     UserNotificationData,
     VerificationAttemptData,
     XBlockSkillVerificationData,
+    SubmissionData
 )
 from openedx_events.tooling import OpenEdxPublicSignal
 
@@ -446,5 +447,16 @@ IDV_ATTEMPT_DENIED = OpenEdxPublicSignal(
     event_type="org.openedx.learning.idv_attempt.denied.v1",
     data={
         "idv_attempt": VerificationAttemptData,
+    }
+)
+
+# .. event_type: org.openedx.learning.response.submitted.v1
+# .. event_name: SUBMISSION_CREATED
+# .. event_description: emitted when a new submission is created
+# .. event_data: SubmissionData
+SUBMISSION_CREATED = OpenEdxPublicSignal(
+    event_type="org.openedx.learning.response.submitted.v1",
+    data={
+        "submission": SubmissionData,
     }
 )
