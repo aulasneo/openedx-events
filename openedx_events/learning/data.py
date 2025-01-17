@@ -6,6 +6,7 @@ pattern.
 """
 from datetime import datetime
 from typing import List, Optional
+from uuid import UUID
 
 import attr
 from ccx_keys.locator import CCXLocator
@@ -609,3 +610,32 @@ class VerificationAttemptData:
     status = attr.ib(type=str)
     name = attr.ib(type=str, default=None)
     expiration_date = attr.ib(type=datetime, default=None)
+
+
+
+@attr.s(frozen=True)
+class SubmissionData:
+    """
+    Data attributes for submission events.
+
+    Arguments:
+        student_id (str): Identifier of the student who made the submission
+        item_id (str): Identifier of the item being submitted
+        course_id (str): Identifier of the course
+        item_type (str): Type of the item
+        answer (dict): The submission answer content
+        attempt_number (int): Number of submission attempts
+        submitted_at (datetime): When the submission was made
+        team_submission_uuid (UUID): Optional team submission identifier
+    """
+    student_id = attr.ib(type=str)
+    item_id = attr.ib(type=str)
+    course_id = attr.ib(type=str)
+    item_type = attr.ib(type=str)
+    answer = attr.ib(type=dict)
+    attempt_number = attr.ib(type=int)
+    submitted_at = attr.ib(type=datetime)
+    submission_uid = attr.ib(type=UUID)
+    team_submission_uuid = attr.ib(type=UUID, default=None)
+
+
